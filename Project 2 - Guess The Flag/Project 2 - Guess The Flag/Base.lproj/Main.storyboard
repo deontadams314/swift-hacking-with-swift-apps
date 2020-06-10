@@ -48,11 +48,23 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="VOO-Rt-1JP"/>
+                    <navigationItem key="navigationItem" id="VOO-Rt-1JP">
+                        <barButtonItem key="leftBarButtonItem" title="scoreButton" style="plain" id="yPt-rQ-LTL">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="u1o-5c-TmF">
+                                <rect key="frame" x="20" y="7" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Score"/>
+                            </button>
+                            <connections>
+                                <action selector="scoreButtonTapped:" destination="BYZ-38-t0r" id="VdU-gT-oad"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="button1" destination="7Wh-xb-cmy" id="HFZ-bW-EXM"/>
                         <outlet property="button2" destination="tlR-t1-58d" id="pKW-bR-arO"/>
                         <outlet property="button3" destination="ua6-0C-xbZ" id="fgp-UQ-SWG"/>
+                        <outlet property="scoreButton" destination="yPt-rQ-LTL" id="qdm-fN-PHd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

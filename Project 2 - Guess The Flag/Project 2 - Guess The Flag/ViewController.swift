@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var scoreButton: UIBarButtonItem!
     
     var countries = [String]()
     var score = 0
@@ -43,6 +44,14 @@ class ViewController: UIViewController {
         correctAnswer = Int.random(in: 0...2)
         title = "\(countries[correctAnswer].uppercased()) || Score: \(score)"
     }
+    
+    
+    @IBAction func scoreButtonTapped(_ sender: UIBarButtonItem) {
+        
+        let bbi = UIBarButtonItem(title: "Your score is: \(score)", style: .plain, target: .none, action: .none)
+    }
+    
+    
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         var title: String
