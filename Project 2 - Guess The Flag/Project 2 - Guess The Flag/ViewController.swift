@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var countries = [String]()
     var score = 0
     var correctAnswer = 0
+    var question_count = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,13 +52,28 @@ class ViewController: UIViewController {
             score += 1
         }
         else {
-            title = "Wrong! Thats the \(countries[sender.tag].uppercased()) flag!"
+            title = "Wrong! That's the \(countries[sender.tag].uppercased()) flag!"
             score -= 1
         }
         
-        let ac = UIAlertController(title: title, message: "Your score is \(score).", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
-        present(ac, animated: true)
+        if question_count < 10 {
+            let ac = UIAlertController(title: title, message: "Your score is \(score).", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+            present(ac, animated: true)
+            question_count += 1
+            
+        }
+        else {
+            let finalAlertController = UIAlertController(title: "GAME OVER! YOU HAVE ANSWERED \(question_count) questions!", message: "Your score is \(score).", preferredStyle: .alert)
+            finalAlertController.addAction(UIAlertAction(title: "Start new game?", style: .default, handler: startNewGame))
+            present(finalAlertController, animated: true)
+        }
+    
+    }
+    func startNewGame(action: UIAlertAction){
+        score = 0
+        question_count = 0
+        askQuestion()
     }
     
 
