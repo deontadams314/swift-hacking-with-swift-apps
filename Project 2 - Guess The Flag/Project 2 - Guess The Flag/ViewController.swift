@@ -33,6 +33,8 @@ class ViewController: UIViewController {
         button2.layer.borderColor = UIColor.lightGray.cgColor
         button3.layer.borderColor = UIColor.lightGray.cgColor
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Score", style: .plain, target: self, action: #selector(returnScore))
+        
         askQuestion()
     }
     
@@ -42,15 +44,8 @@ class ViewController: UIViewController {
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
         correctAnswer = Int.random(in: 0...2)
-        title = "\(countries[correctAnswer].uppercased()) || Score: \(score)"
+        title = "\(countries[correctAnswer].uppercased())"
     }
-    
-    
-    @IBAction func scoreButtonTapped(_ sender: UIBarButtonItem) {
-        
-        let bbi = UIBarButtonItem(title: "Your score is: \(score)", style: .plain, target: .none, action: .none)
-    }
-    
     
     
     @IBAction func buttonTapped(_ sender: UIButton) {
@@ -83,6 +78,12 @@ class ViewController: UIViewController {
         score = 0
         question_count = 0
         askQuestion()
+    }
+    
+    @objc func returnScore() {
+        let scoreAlert = UIAlertController(title: "SCORE", message: nil, preferredStyle: .actionSheet)
+        scoreAlert.addAction(UIAlertAction(title: "Your score is: \(score)", style: .default, handler: nil))
+        present(scoreAlert, animated: true)
     }
     
 
