@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
-    @IBOutlet weak var scoreButton: UIBarButtonItem!
     
     var countries = [String]()
     var score = 0
