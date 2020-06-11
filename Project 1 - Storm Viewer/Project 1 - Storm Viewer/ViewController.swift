@@ -15,6 +15,8 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationItem.leftBarButtonItem = (UIBarButtonItem(title: "Share with your friends", style: .plain, target: self, action: #selector(shareMe)))
 
         title = "Storm Viewer"
         
@@ -49,6 +51,15 @@ class ViewController: UITableViewController {
         }
         
     }
+    
+    @objc func shareMe() {
+        let appLink = "Try this: https://github.com/deontadams314/swift-hacking-with-swift-apps.git"
+        
+        let vc = UIActivityViewController(activityItems: [appLink], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
+        present(vc, animated: true)
+    }
+ 
     
 
 }
